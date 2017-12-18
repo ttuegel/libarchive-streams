@@ -1,0 +1,31 @@
+name: libarchive-streams
+version: 0.1.0.0
+copyright:
+  - (c) 2017 Thomas Tuegel
+synopsis: Read any archive format with libarchive and io-streams
+description: >-
+  @libarchive-streams@ reads archives with @libarchive@. Any format understood
+  by @libarchive@ is supported. The archive contents are streamed from disk
+  using the @io-streams@ library.
+maintainer: Thomas Tuegel <ttuegel@mailbox.org>
+license: Apache-2.0
+github: ttuegel/libarchive-streams
+category: Codec
+extra-source-files:
+  - CHANGELOG.md
+
+ghc-options: -Wall
+
+dependencies:
+  - base >= 4.6 && < 5
+  - bytestring
+  - io-streams
+  - unix
+
+library:
+  source-dirs: src
+  exposed-modules:
+    - Codec.Archive.Read
+    - Codec.Archive.Types
+  extra-libraries:
+    - archive

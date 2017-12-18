@@ -1,12 +1,12 @@
-{ mkDerivation, archive, base, bytestring, conduit, resourcet
-, stdenv, transformers
+{ mkDerivation, archive, base, bytestring, io-streams, stdenv, unix
 }:
 mkDerivation {
-  pname = "libarchive-conduit";
+  pname = "libarchive-streams";
   version = "0.1.0.0";
   src = ./.;
-  buildDepends = [ base bytestring conduit resourcet transformers ];
-  extraLibraries = [ archive ];
-  description = "Read many archive formats with libarchive and conduit";
-  license = stdenv.lib.licenses.bsd3;
+  libraryHaskellDepends = [ base bytestring io-streams unix ];
+  librarySystemDepends = [ archive ];
+  homepage = "https://github.com/ttuegel/libarchive-streams#readme";
+  description = "Read any archive format with libarchive and io-streams";
+  license = stdenv.lib.licenses.asl20;
 }
